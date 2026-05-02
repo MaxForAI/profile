@@ -26,7 +26,7 @@ const About = () => {
               className="rounded-xl shadow-lg w-full h-full object-cover object-center hover:scale-[1.02] transition-transform duration-300"
               style={{ objectPosition: '50% 15%' }}
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               width="800"
               height="1067"
@@ -48,8 +48,8 @@ const About = () => {
 
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             {language === 'en'
-              ? "Witnessing the AI revolution sweeping across China while my peers in New Zealand were still discussing how to use GPT for essays, I took a leap of faith. I participated in hackathons, founded a B2B startup, and later joined the research team at Miracle Plus, followed by roles at an AI education startup and Founder Park."
-              : "当我发现国内的同龄人都在积极投身AI创业浪潮时，新西兰的同学们还在讨论如何用GPT写论文。我毅然决定休学，投身AI浪潮。我先后参与黑客松比赛、创立To B服务公司、加入奇绩创坛行研团队，之后在AI教育创业公司和Founder Park积累了宝贵经验。"}
+              ? "After deciding to transition into AI in 2023, I moved through multiple roles across the startup ecosystem: Research Team at MiraclePlus, Community Operations at Founder Park, COO at an AI education company (¥5M angel round), Operations at Sapient, Product Operations at Bonjour, and CMO at ListenHub."
+              : "在 2023 年决定转向 AI 后，我在创业生态中先后担任多个角色：奇绩创坛行研组、Founder Park 社区运营、AI 教育公司 COO（¥5M 天使轮）、Sapient 运营、Bonjour 产品运营，以及 ListenHub CMO。"}
           </p>
 
           <div className="h-px bg-gray-200 w-full my-4 sm:my-6"></div>
@@ -64,16 +64,16 @@ const About = () => {
 
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             {language === 'en'
-              ? "Currently at Sapient, a Singapore-based AI startup that's making waves in enterprise AI. Sapient stands out with its innovative approach to large language models, developing new model architectures that are both more efficient and cost-effective than traditional approaches. The company's models achieve superior performance while using significantly less computational resources, marking a breakthrough in enterprise AI solutions."
-              : "目前我在Sapient工作，这是一家来自新加坡的AI创业公司，正在企业AI领域掀起波澜。Sapient以其创新的大语言模型架构脱颖而出，开发出比传统方法更高效、更具成本效益的模型。公司的模型在显著减少计算资源使用的同时，实现了卓越的性能，这在企业AI解决方案领域具有突破性意义。"}
+              ? "Selected wins include leading an overseas cold start with a $20K budget, generating around 300K impressions, converting 5,000 users on day one, and securing several term sheets (TS). I also scaled products from tens of thousands to hundreds of thousands of users, led brand marketing that earned overseas exhibition opportunities, and grew ARR from tens of thousands USD to multiple millions USD under strict attribution."
+              : "代表性战绩包括：主导某产品海外冷启动，以 2 万美元预算拿到约 30 万曝光、当天转化 5000 用户，并获得数个 TS；另一个产品从几万用户运营到几十万用户规模，带领品牌 MKT 拿到海外参展机会，并在最严格算法口径下将 ARR 从数万美金增长到数百万美金。"}
           </p>
 
           <div className="h-px bg-gray-200 w-full my-4 sm:my-6"></div>
 
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
             {language === 'en'
-              ? "Beyond my role at Sapient, I'm actively exploring AI programming and declarative development. I've already achieved some promising results, and this website is one of them - built entirely through declarative development using Windsurf. This approach represents a fundamental shift in how we create software, making development more accessible and efficient. I'm excited to be at the forefront of this transformation in software development."
-              : "除了在Sapient的工作，我也在积极探索AI编程和声明式开发。我已经取得了一些成果，本网站就是其中之一 - 完全通过Windsurf进行声明式开发构建。这种方法代表了软件创建方式的根本转变，使开发变得更加便捷和高效。我很高兴能够站在软件开发变革的前沿。"}
+              ? "These experiences gave me a cross-functional perspective across research, community, operations, product, and growth. I enjoy building from 0 to 1 and turning complex strategy into repeatable execution with teams."
+              : "这些经历让我形成了从行研、社区、运营到产品与增长的跨职能视角。我喜欢做从 0 到 1 的搭建，也擅长把复杂战略转化为团队可持续执行的动作。"}
           </p>
         </div>
       </div>

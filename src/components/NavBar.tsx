@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import AppleStyleIcon from './AppleStyleIcon';
 import { useLanguage } from '../context/LanguageContext';
 import { Menu, X } from 'lucide-react';
@@ -50,6 +50,11 @@ const NavBar = () => {
     }
   };
 
+  const handleBackToTop = () => {
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -61,15 +66,16 @@ const NavBar = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a 
-            href="#" 
+          <button
+            type="button"
+            onClick={handleBackToTop}
             className="w-14 h-14 rounded-full hover:scale-110 transition-transform duration-300 ease-out backdrop-blur-md bg-white/10 flex items-center justify-center"
             aria-label={language === 'en' ? 'Back to top' : '返回顶部'}
           >
             <div className="w-11 h-11">
               <AppleStyleIcon />
             </div>
-          </a>
+          </button>
           
           {/* 桌面端导航 */}
           <div className="hidden sm:flex space-x-8" role="menubar">
@@ -134,7 +140,7 @@ const NavBar = () => {
   );
 };
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+const NavLink = ({ href, children }: { href: string; children: ReactNode }) => (
   <a
     href={href}
     className="text-white/80 hover:text-white transition-colors duration-300
@@ -154,7 +160,7 @@ const MobileNavLink = ({
 }: { 
   href: string; 
   onClick: () => void; 
-  children: React.ReactNode 
+  children: ReactNode
 }) => (
   <a
     href={href}

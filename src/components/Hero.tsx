@@ -65,6 +65,16 @@ const Hero = () => {
   );
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
     const preloadNextImage = () => {
       const nextIndex = (currentImageIndex + 1) % backgroundImages.length;
       const nextImage = backgroundImages[nextIndex];
@@ -82,15 +92,7 @@ const Hero = () => {
     };
 
     preloadNextImage();
-
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [currentImageIndex]);
+  }, [currentImageIndex, supportsWebP]);
 
   const openModal = () => {
     setIsWeChatModalOpen(true);
@@ -171,10 +173,10 @@ const Hero = () => {
 
           <div className="mb-4 sm:mb-8 animate-slideInFromRight">
             <h2 className="text-lg sm:text-2xl md:text-3xl text-white/90 font-semibold mb-2 sm:mb-3">
-              {language === 'en' ? '🚀 Currently' : '🚀 目前在做'}
+              {language === 'en' ? '🚀 Experience Snapshot' : '🚀 经历概览'}
             </h2>
             <p className="text-base sm:text-xl md:text-2xl text-gray-200 max-w-3xl leading-relaxed pl-2 sm:pl-4 border-l-2 border-white/10">
-              {language === 'en' ? 'Head of Developer Relations & Community Operations in China at ' : ''}
+              {language === 'en' ? 'Operations and growth roles across AI startups, including ' : '在 AI 创业公司中负责运营与增长，历任 '}
               <a 
                 href="https://www.sapient.inc/" 
                 target="_blank" 
@@ -184,35 +186,63 @@ const Hero = () => {
                 Sapient
               </a>
               {language === 'en' 
-                ? '' 
-                : ' 中国区开发者关系与社区运营负责人'}
+                ? ' (Operations), Bonjour (Product Operations), and ListenHub (CMO).' 
+                : '（运营）、Bonjour（产品运营）和 ListenHub（CMO）。'}
             </p>
           </div>
 
           <p className="text-sm sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed mb-3 sm:mb-6 animate-slideInFromLeft">
-            {language === 'en' 
-              ? 'Previously: COO at AI Education Startup (¥5M Angel Round) 📚, Research Team at '
-              : '过去经历：AI 教育初创公司 COO（¥5M 天使轮） 📚，'}
-            <a 
-              href={language === 'en' ? 'https://www.miracleplus.com/en/' : 'https://www.miracleplus.com/'} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              {language === 'en' ? 'Miracle Plus' : '奇绩创坛'}
-            </a>
+            {language === 'en' ? (
+              <>
+                Previous roles: Research Team at{' '}
+                <a
+                  href="https://www.miracleplus.com/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  MiraclePlus
+                </a>{' '}
+                (Research) 🔍, Community Operations at{' '}
+                <a
+                  href="https://founderpark.net/pchome/pchomepage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Founder Park
+                </a>{' '}
+                🌟, and COO at an AI Education Startup (¥5M Angel Round) 📚.
+              </>
+            ) : (
+              <>
+                过往经历：
+                <a
+                  href="https://www.miracleplus.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  奇绩创坛
+                </a>
+                （行研组）🔍、
+                <a
+                  href="https://founderpark.net/pchome/pchomepage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Founder Park
+                </a>
+                （社区运营）🌟、AI 教育公司 COO（¥5M 天使轮）📚。
+              </>
+            )}
+          </p>
+
+          <p className="text-sm sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed mb-3 sm:mb-6 animate-slideInFromRight">
             {language === 'en'
-              ? ' 🔍, and Community Operations at '
-              : ' 行研团队 🔍，'}
-            <a 
-              href="https://founderpark.net/pchome/pchomepage" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Founder Park
-            </a>
-            {language === 'en' ? ' 🌟' : '社区运营 🌟'}
+              ? "Selected wins: Led an overseas cold start with a $20K budget, generated about 300K impressions, converted 5,000 users on day one, and secured several term sheets (TS). Also scaled products from tens of thousands to hundreds of thousands of users, led brand marketing that earned opportunities to exhibit overseas, and grew ARR from tens of thousands USD to multiple millions USD under strict attribution."
+              : '代表性战绩：某产品海外冷启动以 2 万美元预算拿到约 30 万曝光、当天转化 5000 用户，并获得数个 TS；另一个产品从几万用户运营到几十万用户规模，主导品牌 MKT 并拿到海外参展机会，在最严格算法口径下将收入从数万美金 ARR 提升到数百万美金 ARR。'}
           </p>
 
           <p className="text-sm sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed animate-slideInFromRight">

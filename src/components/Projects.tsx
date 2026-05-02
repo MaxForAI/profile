@@ -1,8 +1,7 @@
-import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import Section from './Section';
 import { useLanguage } from '../context/LanguageContext';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const projects = {
   en: [
@@ -69,7 +68,6 @@ const projects = {
 
 const Projects = () => {
   const { language } = useLanguage();
-  const navigate = useNavigate();
 
   return (
     <Section 
@@ -80,11 +78,10 @@ const Projects = () => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects[language as keyof typeof projects].map((project, index) => (
-          <div 
+          <Link
             key={project.title}
-            className="group relative overflow-hidden rounded-xl cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-            onClick={() => navigate(project.link)}
-            role="article"
+            to={project.link}
+            className="group relative block overflow-hidden rounded-xl cursor-pointer transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             aria-labelledby={`project-title-${index}`}
           >
             <div className="relative aspect-video">
@@ -98,7 +95,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.alt}
                   loading={index <= 1 ? "eager" : "lazy"}
-                  fetchpriority={index === 0 ? "high" : "auto"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
                   decoding="async"
                   className="w-full h-full object-cover rounded-xl"
                   width="640"
@@ -117,14 +114,11 @@ const Projects = () => {
                 {project.title}
               </h3>
               <p className="text-gray-300">{project.description}</p>
-              <a 
-                href={project.link} 
-                className="inline-flex items-center text-white border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors mt-4"
-              >
+              <span className="inline-flex items-center text-white border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors mt-4">
                 {language === 'en' ? 'View Project' : '查看项目'} <ExternalLink size={16} className="ml-2" />
-              </a>
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </Section>

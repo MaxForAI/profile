@@ -1,10 +1,9 @@
-import React from 'react';
+import { type ReactNode } from 'react';
 import Section from './Section';
 import { useLanguage } from '../context/LanguageContext';
 import { MessageCircle, Mail, Send, Twitter } from 'lucide-react';
 import { SiXiaohongshu } from 'react-icons/si';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -75,7 +74,7 @@ const Contact = () => {
   );
 };
 
-const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
+const SocialLink = ({ href, icon, label }: { href: string; icon: ReactNode; label: string }) => (
   <a 
     href={href}
     target="_blank"
@@ -87,7 +86,7 @@ const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode
   </a>
 );
 
-const SocialButton = ({ onClick, icon, label }: { onClick: () => void; icon: React.ReactNode; label: string }) => (
+const SocialButton = ({ onClick, icon, label }: { onClick: () => void; icon: ReactNode; label: string }) => (
   <button
     onClick={onClick}
     className="hover:text-white hover:scale-110 transition-all duration-300"
