@@ -136,7 +136,7 @@ const Hero = () => {
   );
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden pt-32 pb-12 sm:pt-36 sm:pb-16">
       {/* Background Images with Overlay */}
       {backgroundImages.map((image, index) => (
         <div
